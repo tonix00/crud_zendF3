@@ -1,0 +1,29 @@
+<br />
+<a href="<?=$this->basePath('/crud/add');?>"><button type="button" class="btn btn-primary">Create Record</button></a>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Category</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($data as $k => $v){?>
+    <tr>
+      <th scope="row"><?=$v->getId();?></th>
+      <td><?=$v->getTitle();?></td>
+      <td><?=$v->getDescription();?></td>
+      <td><?=$v->getCategory();?></td>
+      <td>
+      <a href="<?=$this->url('crud',['action'=>'view','id'=>$v->getId()]);?>"><button type="button" class="btn btn-success">View</button></a>
+      <a href="<?=$this->url('crud',['action'=>'update','id'=>$v->getId()]);?>"><button type="button" class="btn btn-warning">Update</button></a>
+      <a href="<?=$this->url('crud',['action'=>'delete','id'=>$v->getId()]);?>"><button type="button" class="btn btn-danger">Delete</button></a>
+      </td>
+    </tr>
+  <?php } ?>
+  </tbody>
+</table>
+

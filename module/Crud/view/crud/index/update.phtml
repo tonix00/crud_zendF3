@@ -1,0 +1,16 @@
+<?php
+
+$title = 'Edit record';
+$this->headTitle($title);
+
+?>
+<h3><?=$this->escapeHtml($title);?></h3>
+<?php
+
+$form->setAttribute('action',$this->url('crud',['action'=>'update','id'=>$id]));
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('title')); echo "<br/>";
+echo $this->formRow($form->get('description')); echo "<br/>";
+echo $this->formRow($form->get('category')); echo "<br/>";
+echo $this->formRow($form->get('submit'));
